@@ -18,14 +18,14 @@ import android.widget.DatePicker;
 
 import androidx.appcompat.app.AlertDialog;
 
-import com.example.hello.R;
-
 import java.util.Calendar;
 
 /**
  * This class echoes a string called from JavaScript.
  */
 public class OpenSimpleDialog extends CordovaPlugin {
+
+    private final int Theme_Holo_Light_Dialog_MinWidth = 16973940;
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
@@ -68,7 +68,7 @@ public class OpenSimpleDialog extends CordovaPlugin {
                     final int month = calendar.get(Calendar.MONTH);
                     final int day = calendar.get(Calendar.DAY_OF_MONTH);
                     DatePickerDialog datePickerDialog = new DatePickerDialog(cordova.getActivity(),
-                            android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                            Theme_Holo_Light_Dialog_MinWidth,
                             dateSetListener, year, month, day);
                     datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                     datePickerDialog.show();
